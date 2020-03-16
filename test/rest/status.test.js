@@ -4,7 +4,8 @@ const { test } = require('tap')
 const { build } = require('../helper')
 
 test('get status', async t => {
-  const res = await build(t)
+  const app = await build(t)
+  const res = await app
     .get('/api/status')
     .set('Accept', 'application/json')
     .expect('Content-Type', /json/)
@@ -14,7 +15,8 @@ test('get status', async t => {
 })
 
 test('random url', async t => {
-  const res = await build(t)
+  const app = await build(t)
+  const res = await app
     .get('/not-found-api')
     .set('Accept', 'application/json')
     .expect('Content-Type', /json/)

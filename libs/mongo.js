@@ -3,8 +3,11 @@
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 
-function init (config) {
-  mongoose.connect(config.url, config.options)
+async function init (config) {
+  mongoose.connection.on('error', err => {
+    console.error(err)
+    process.exit(0)
+  })
 
   // If the Node process ends, close the Mongoose connection
   process.on('SIGINT', function () {
@@ -13,6 +16,7 @@ function init (config) {
       process.exit(0)
     })
   })
+  return mongoose.connect(config.url, config.options)
 }
 
 module.exports = init
