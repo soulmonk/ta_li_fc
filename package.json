@@ -10,6 +10,7 @@
     "pretest": "standard",
     "start": "node app.js",
     "test": "tap ./test/**/*.test.js",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install",
     "lint": "standard --fix"
   },
   "repository": {
