@@ -1,0 +1,44 @@
+{
+  "name": "ta_li_fc",
+  "version": "0.0.1",
+  "description": "TA",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "pretest": "standard",
+    "start": "node app.js",
+    "test": "tap ./test/**/*.test.js",
+    "lint": "standard --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soulmonk/ta_li_fc.git"
+  },
+  "keywords": [
+    "express",
+    "mongodb"
+  ],
+  "author": "Vitalii Melnykov <fsoulmonk@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soulmonk/ta_li_fc/issues"
+  },
+  "homepage": "https://github.com/soulmonk/ta_li_fc#readme",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "morgan": "^1.9.1",
+    "mongoose": "^5.9.4"
+  },
+  "devDependencies": {
+    "sinon": "^9.0.1",
+    "standard": "*",
+    "supertest": "^4.0.2",
+    "tap": "^14.10.6"
+  }
+}

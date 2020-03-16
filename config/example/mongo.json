@@ -1,0 +1,7 @@
+{
+  "url": "mongodb://localhost/ta_li_fc",
+  "options": {
+    "useNewUrlParser": true,
+    "useUnifiedTopology": true
+  }
+}
