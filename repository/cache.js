@@ -47,19 +47,18 @@ class CacheRepository {
 
   async create (key, value) {
     const count = await this.model.countDocuments()
-    if (count > this.cfg.limit) {
+    if (count >= this.cfg.limit) {
       logger.info('Reached cache limit, overwrite nearest for expiration')
-      const model = await this.model.findOne({}).sort({ ttl: -1 }).exec()
+      const model = await this.model.findOne({}).sort({ ttl: 1 }).exec()
       logger.debug('Removing:', model.key, model.value, model.ttl)
       await model.remove()
     }
-    const expired = Date.now() + this.cfg.ttl * 1000
 
     // update or create
     return this.model.create({
       key,
       value,
-      ttl: expired
+      ttl: this.getTtl()
     })
   }
 

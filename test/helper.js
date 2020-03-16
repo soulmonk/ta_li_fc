@@ -12,8 +12,7 @@ const init = require('../app')
 async function build (t) {
   const app = await init()
   t.tearDown(() => require('mongoose').connection.close())
-  const _app = request(app)
-  return _app
+  return request(app)
 }
 
 module.exports = {
